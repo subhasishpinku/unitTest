@@ -1,3 +1,4 @@
+import 'package:firsttest/home_screen.dart';
 import 'package:firsttest/validator.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +40,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 20.0),
                 ElevatedButton(
                     onPressed: () {
-                      _key.currentState?.validate();
+                      if (_key.currentState?.validate() == true) {
+                        // Navigate to Home Screen
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomeScreen()));
+                      }
                     },
                     child: const Text("Login"))
               ],
